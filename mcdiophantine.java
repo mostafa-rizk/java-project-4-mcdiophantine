@@ -31,7 +31,16 @@ public class mcdiophantine {
          while (nuggets[pos1] != 0);
          pos1 = 0;
          do { // Runs until list is exhausted -> pos1 & pos2 == marker - 1 (CHECKING SUMS)
-            
+            if (inList) {
+               break ;
+            }
+            if (pos1 < n) { //Makes sure that number isn't already bigger than leading sum part
+               sum = nuggets[pos1] + nuggets[pos2];
+               if (sum == n) { //Checks if number matches sum
+                  
+               }
+               pos2++;
+            }
          }
          while (pos2 != marker - 1);
       }
