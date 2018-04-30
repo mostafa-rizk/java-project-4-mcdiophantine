@@ -13,7 +13,7 @@ public class mcdiophantine {
       parts[2][0] = 0; parts[2][1] = 0; parts[2][2] = 1;
       int[] nuggets = new int[100];
       nuggets[0] = 6; nuggets[1] = 9; nuggets[2] = 20;
-      int pos1, pos2, quotient, sum, marker = 3, n = 6;
+      int pos1, pos2, quotient, sum, temp, marker = 3, n = 6;
       boolean inList;
       do { //Runs until last array element is != 0
          pos1 = 0;
@@ -76,6 +76,22 @@ public class mcdiophantine {
          marker++;
       }
       while (nuggets[nuggets.length - 1] == 0);
-      //System.out.println(Arrays.toString(nuggets));
+      pos1 = 0;
+      pos2 = 1;
+      for (int i = 0; i < 5; i++) {
+         if (nuggets[pos1] > nuggets[pos2]) {
+            temp = nuggets[pos1];
+            nuggets[pos1] = nuggets[pos2];
+            nuggets[pos2] = temp;
+            for (int j = 0; j < 3; j++) {
+               temp = parts[pos1][j];
+               parts[pos2][j] = parts[pos1][j];
+               parts[pos1][j] = temp;
+            }
+         }
+         pos1++;
+         pos2++;
+      }
+      System.out.println(Arrays.toString(nuggets));
    }
 }
