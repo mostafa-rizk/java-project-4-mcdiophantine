@@ -10,5 +10,16 @@ public class mcdiophantine {
       nuggets[0] = 6; nuggets[1] = 9; nuggets[2] = 20;
       int pos1, pos2, quotient, sum, marker = 3, n = 6;
       boolean inList;
+      do { //Runs until last array element is != 0
+         do { //Runs until nuggets index pos1 is 0 (CHECKING MULTIPLES)
+            
+         }
+         while ();
+         do { // Runs until list is exhausted -> pos1 & pos2 == marker - 1 (CHECKING SUMS)
+            
+         }
+         while ();
+      }
+      while ();
    }
 }
