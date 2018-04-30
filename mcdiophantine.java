@@ -37,9 +37,18 @@ public class mcdiophantine {
             if (pos1 < n) { //Makes sure that number isn't already bigger than leading sum part
                sum = nuggets[pos1] + nuggets[pos2];
                if (sum == n) { //Checks if number matches sum
-                  
+                  parts[marker][0] = parts[pos1][0] + parts[pos2][0];
+                  parts[marker][1] = parts[pos1][1] + parts[pos2][1];
+                  parts[marker][2] = parts[pos1][2] + parts[pos2][2];
+                  inList = true;
                }
                pos2++;
+               if (pos2 == marker - 1) { //Checks that pos2 is at last number in array
+                  if (pos1 != marker - 1) { //Checks that pos1 isn't at last number in array
+                     pos1++;
+                     pos2 = 0;
+                  }
+               }
             }
          }
          while (pos2 != marker - 1);
