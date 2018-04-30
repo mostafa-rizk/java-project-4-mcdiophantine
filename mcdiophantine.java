@@ -12,14 +12,18 @@ public class mcdiophantine {
       boolean inList;
       do { //Runs until last array element is != 0
          do { //Runs until nuggets index pos1 is 0 (CHECKING MULTIPLES)
-            
+            if (n % nuggets[pos1] == 0) { //Checks if number is divisible by a number in array
+               
+            }
+            pos1++;
          }
-         while ();
+         while (nuggets[pos1] != 0);
+         pos1 = 0;
          do { // Runs until list is exhausted -> pos1 & pos2 == marker - 1 (CHECKING SUMS)
             
          }
-         while ();
+         while (pos2 != marker - 1);
       }
-      while ();
+      while (nuggets[nuggets.length - 1] == 0);
    }
 }
