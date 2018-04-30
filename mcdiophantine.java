@@ -15,10 +15,13 @@ public class mcdiophantine {
             if (n % nuggets[pos1] == 0) { //Checks if number is divisible by a number in array
                quotient = n / nuggets[pos1];
                if (quotient > 1) { //Checks if number is already in list (only applies to 6, 9, and 20)
-                  
+                  nuggets[marker] = n;
+                  parts[marker][0] = parts[pos1][0] * quotient;
+                  parts[marker][1] = parts[pos1][1] * quotient;
+                  parts[marker][2] = parts[pos1][2] * quotient;
                }
                else {
-                  
+                  marker -= 1;
                }
                inList = true;
                break ;
