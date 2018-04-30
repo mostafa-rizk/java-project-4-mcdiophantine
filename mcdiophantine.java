@@ -52,6 +52,12 @@ public class mcdiophantine {
             }
          }
          while (pos2 != marker - 1);
+         if (!inList) { //Checks if number is in list
+            n++;
+            continue ;
+         }
+         n++;
+         marker++;
       }
       while (nuggets[nuggets.length - 1] == 0);
    }
