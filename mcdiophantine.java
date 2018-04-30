@@ -20,7 +20,6 @@ public class mcdiophantine {
          pos2 = 1;
          inList = false;
          do { //Runs until nuggets index pos1 is 0 (CHECKING MULTIPLES)
-            System.out.println("pos1 is " + pos1 + ", marker is " + marker + ", n is " + n);
             if (n % nuggets[pos1] == 0) { //Checks if number is divisible by a number in array
                quotient = n / nuggets[pos1];
                if (quotient > 1) { //Checks if number is already in list (only applies to 6, 9, and 20)
@@ -29,7 +28,7 @@ public class mcdiophantine {
                   parts[marker][1] = parts[pos1][1] * quotient;
                   parts[marker][2] = parts[pos1][2] * quotient;
                   System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
-                  BRIGHT_GREEN + parts[pos1][0] + ", " + parts[pos1][1] + ", " + parts[pos1][2] + RESET);
+                  BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
                }
                else {
                   System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
@@ -50,11 +49,12 @@ public class mcdiophantine {
             if (pos1 < n) { //Makes sure that number isn't already bigger than leading sum part
                sum = nuggets[pos1] + nuggets[pos2];
                if (sum == n) { //Checks if number matches sum
+                  nuggets[marker] = n;
                   parts[marker][0] = parts[pos1][0] + parts[pos2][0];
                   parts[marker][1] = parts[pos1][1] + parts[pos2][1];
                   parts[marker][2] = parts[pos1][2] + parts[pos2][2];
                   System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
-                  BRIGHT_GREEN + parts[pos1][0] + ", " + parts[pos1][1] + ", " + parts[pos1][2] + RESET);
+                  BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
                   inList = true;
                }
                pos2++;
@@ -74,7 +74,6 @@ public class mcdiophantine {
          }
          n++;
          marker++;
-         //System.out.println(Arrays.toString(nuggets));
       }
       while (nuggets[nuggets.length - 1] == 0);
       //System.out.println(Arrays.toString(nuggets));
