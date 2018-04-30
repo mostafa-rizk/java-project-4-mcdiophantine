@@ -13,7 +13,15 @@ public class mcdiophantine {
       do { //Runs until last array element is != 0
          do { //Runs until nuggets index pos1 is 0 (CHECKING MULTIPLES)
             if (n % nuggets[pos1] == 0) { //Checks if number is divisible by a number in array
-               
+               quotient = n / nuggets[pos1];
+               if (quotient > 1) { //Checks if number is already in list (only applies to 6, 9, and 20)
+                  
+               }
+               else {
+                  
+               }
+               inList = true;
+               break ;
             }
             pos1++;
          }
