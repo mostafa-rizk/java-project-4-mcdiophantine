@@ -26,11 +26,11 @@ public class mcdiophantine {
             input.next();
          }
       }
-      while (Character.toLowerCase(choice) != 'y' || Character.toLowerCase != 'n') {
+      while (Character.toLowerCase(choice) != 'y' || Character.toLowerCase(choice) != 'n') {
          try {
             System.out.print(BRIGHT_GREEN + "Print all numbers previous to " + userInt + "? (Y/N) " + RESET);
             choice = input.next(".").charAt(0);
-            if (Character.toLowerCase(choice) == 'y' || Character.toLowerCase == 'n') {
+            if (Character.toLowerCase(choice) == 'y' || Character.toLowerCase(choice) == 'n') {
                if (Character.toLowerCase(choice) == 'y') {
                   printAll = true;
                }
@@ -63,13 +63,17 @@ public class mcdiophantine {
                   parts[marker][0] = parts[pos1][0] * quotient;
                   parts[marker][1] = parts[pos1][1] * quotient;
                   parts[marker][2] = parts[pos1][2] * quotient;
-                  System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
-                  BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
+                  if (printAll || n == userInt) {
+                     System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
+                     BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
+                  }
                }
                else {
-                  System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
-                  BRIGHT_GREEN + parts[pos1][0] + ", " + parts[pos1][1] + ", " + parts[pos1][2] + RESET);
                   marker--;
+                  if (printAll || n == userInt) {
+                     System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
+                     BRIGHT_GREEN + parts[pos1][0] + ", " + parts[pos1][1] + ", " + parts[pos1][2] + RESET);
+                  }
                }
                inList = true;
                break ;
@@ -89,9 +93,11 @@ public class mcdiophantine {
                   parts[marker][0] = parts[pos1][0] + parts[pos2][0];
                   parts[marker][1] = parts[pos1][1] + parts[pos2][1];
                   parts[marker][2] = parts[pos1][2] + parts[pos2][2];
-                  System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
-                  BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
                   inList = true;
+                  if (printAll || n == userInt) {
+                     System.out.println(BRIGHT_YELLOW + n + BRIGHT_RED + " is a diophantine made up of " +
+                     BRIGHT_GREEN + parts[marker][0] + ", " + parts[marker][1] + ", " + parts[marker][2] + RESET);
+                  }
                }
                pos2++;
                if (pos2 == marker - 1) { //Checks that pos2 is at last number in array
@@ -104,7 +110,9 @@ public class mcdiophantine {
          }
          while (pos2 != marker - 1);
          if (!inList) { //Checks if number is in list
-            System.out.println(BRIGHT_YELLOW + n + BRIGHT_BLUE + " is not a diophantine" + RESET);
+            if (printAll || n == userInt) {
+               System.out.println(BRIGHT_YELLOW + n + BRIGHT_BLUE + " is not a diophantine" + RESET);
+            }
             n++;
             continue ;
          }
@@ -112,28 +120,30 @@ public class mcdiophantine {
          marker++;
       }
       while (n - 1 != userInt);
-      pos1 = 0;
-      pos2 = 1;
-      for (int i = 0; i < 5; i++) {
-         if (nuggets[pos1] > nuggets[pos2]) {
-            temp = nuggets[pos1];
-            nuggets[pos1] = nuggets[pos2];
-            nuggets[pos2] = temp;
-            for (int j = 0; j < 3; j++) {
-               temp = parts[pos1][j];
-               parts[pos2][j] = parts[pos1][j];
-               parts[pos1][j] = temp;
+      if (printAll) {
+         pos1 = 0;
+         pos2 = 1;
+         for (int i = 0; i < 5; i++) {
+            if (nuggets[pos1] > nuggets[pos2]) {
+               temp = nuggets[pos1];
+               nuggets[pos1] = nuggets[pos2];
+               nuggets[pos2] = temp;
+               for (int j = 0; j < 3; j++) {
+                  temp = parts[pos1][j];
+                  parts[pos2][j] = parts[pos1][j];
+                  parts[pos1][j] = temp;
+               }
+            }
+            pos1++;
+            pos2++;
+         }
+         System.out.print("[");
+         for (int i = 0, j = nuggets.length; i < j; i++) {
+            if (nuggets[i] != 0) {
+               System.out.print(nuggets[i] + ", ");
             }
          }
-         pos1++;
-         pos2++;
+         System.out.print("\b\b" + "]" + "\n");
       }
-      System.out.print("[");
-      for (int i = 0, j = nuggets.length; i < j; i++) {
-         if (nuggets[i] != 0) {
-            System.out.print(nuggets[i] + ", ");
-         }
-      }
-      System.out.print("\b\b" + "]" + "\n");
    }
 }
