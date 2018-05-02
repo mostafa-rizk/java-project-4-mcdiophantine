@@ -9,6 +9,8 @@ public class mcdiophantine {
    public static void main(String args[]) {
       Scanner input = new Scanner(System.in);
       int userInt = 0;
+      char choice = '.';
+      boolean printAll = false;
       System.out.println(BRIGHT_GREEN + "Numbers 44 and above can all be made using 6, 9, and 20" + RESET);
       while (userInt < 6) {
          try {
@@ -21,6 +23,14 @@ public class mcdiophantine {
          }
          catch (Exception e) {
             System.out.println(BRIGHT_YELLOW + "Please input an integer bigger than 6" + RESET);
+            input.next();
+         }
+      }
+      while (Character.toLowerCase(choice) != 'y' || Character.toLowerCase != 'n') {
+         try {
+            
+         }
+         catch (Exception e) {
             input.next();
          }
       }
