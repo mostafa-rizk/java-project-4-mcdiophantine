@@ -7,11 +7,22 @@ public class mcdiophantine {
    public static final String BRIGHT_YELLOW = "\u001b[33;1m";
    public static final String RESET = "\u001b[0m";
    public static void main(String args[]) {
-      int[][] parts = new int[100][3];
+      Scanner input = new Scanner(System.in);
+      int userInt = 0;
+      System.out.println(BRIGHT_GREEN + "Numbers 44 and above can all be made using 6, 9, and 20" + RESET);
+      while (userInt < 6) {
+         try {
+            
+         }
+         catch (Exception e) {
+            
+         }
+      }
+      int[][] parts = new int[userInt][3];
       parts[0][0] = 1; parts[0][1] = 0; parts[0][2] = 0;
       parts[1][0] = 0; parts[1][1] = 1; parts[1][2] = 0;
       parts[2][0] = 0; parts[2][1] = 0; parts[2][2] = 1;
-      int[] nuggets = new int[100];
+      int[] nuggets = new int[userInt];
       nuggets[0] = 6; nuggets[1] = 9; nuggets[2] = 20;
       int pos1, pos2, quotient, sum, temp, marker = 3, n = 6;
       boolean inList;
@@ -75,7 +86,7 @@ public class mcdiophantine {
          n++;
          marker++;
       }
-      while (nuggets[nuggets.length - 1] == 0);
+      while (n - 1 != userInt);
       pos1 = 0;
       pos2 = 1;
       for (int i = 0; i < 5; i++) {
