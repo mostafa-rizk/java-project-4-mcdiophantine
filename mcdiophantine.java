@@ -12,10 +12,16 @@ public class mcdiophantine {
       System.out.println(BRIGHT_GREEN + "Numbers 44 and above can all be made using 6, 9, and 20" + RESET);
       while (userInt < 6) {
          try {
-            
+            System.out.print(BRIGHT_BLUE + "What number do you want to check is a diophantine made up of "
+            + "6, 9, and 20? " + RESET);
+            userInt = input.nextInt();
+            if (userInt < 6) {
+               System.out.println(BRIGHT_YELLOW + "Please input an integer bigger than 6" + RESET);
+            }
          }
          catch (Exception e) {
-            
+            System.out.println(BRIGHT_YELLOW + "Please input an integer bigger than 6" + RESET);
+            input.next();
          }
       }
       int[][] parts = new int[userInt][3];
