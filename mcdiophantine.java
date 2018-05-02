@@ -28,9 +28,18 @@ public class mcdiophantine {
       }
       while (Character.toLowerCase(choice) != 'y' || Character.toLowerCase != 'n') {
          try {
-            
+            System.out.print(BRIGHT_GREEN + "Print all numbers previous to " + userInt + "? (Y/N) " + RESET);
+            choice = input.next(".").charAt(0);
+            if (Character.toLowerCase(choice) == 'y' || Character.toLowerCase == 'n') {
+               if (Character.toLowerCase(choice) == 'y') {
+                  printAll = true;
+               }
+               break ;
+            }
+            System.out.println(BRIGHT_YELLOW + "Type Y or N" + RESET);
          }
          catch (Exception e) {
+            System.out.println(BRIGHT_YELLOW + "Type Y or N" + RESET);
             input.next();
          }
       }
