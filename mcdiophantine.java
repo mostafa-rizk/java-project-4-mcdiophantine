@@ -109,6 +109,12 @@ public class mcdiophantine {
          pos1++;
          pos2++;
       }
-      System.out.println(Arrays.toString(nuggets));
+      System.out.print("[");
+      for (int i = 0, j = nuggets.length; i < j; i++) {
+         if (nuggets[i] != 0) {
+            System.out.print(nuggets[i] + ", ");
+         }
+      }
+      System.out.print("\b\b" + "]" + "\n");
    }
 }
